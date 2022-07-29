@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { getAllPokemon, getAPokemon, getTypes } from '../../Redux/actions/index.js';
 import Card from '../Card/Card.jsx';
 import {useEffect, useState} from "react";
+import style from "./Home.module.css"
 // import poison from "../../assets/poison.png"
 
 
@@ -28,10 +29,10 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
      
 
      let pokemonsButtons = pokemons.slice()
-     if(page===0){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(0,13);}
-     if(page===1){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(13, 25);}
-     if(page===2){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(25, 37);}
-     if(page===3){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(37, 49);}
+     if(page===0){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(0,12);}
+     if(page===1){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(12, 24);}
+     if(page===2){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(24, 36);}
+     if(page===3){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(36, 48);}
      console.log("mi page", page)
      console.log("mi pokemons buttons", pokemonsButtons)
     //  console.log("ultimo consoleee p",pokemons)
@@ -245,19 +246,28 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
     //  console.log("mi clean state esta en2: ",cleanState)
     if(typeof(pokemons)==="string"){
       return (
-        <span>NO EXISTE ESE POKEMON</span>
+        <div className={style.home_container}>
+        <span className={style.span_fail}>That pokemon doesn't exists :(</span>
+        <img className={style.pikachu_fail} src="assets/pikachu.png" alt="" />
+        </div>
       )
      }else if(typeof(pokemons[0])==="string"||pokemons.length<1){
       return(
-        <span>Cargando...</span>
+        <div className={style.home_container}>
+        <img className={style.snorlax_load} src="assets/snorlax.png"/>
+        <span className={style.span_load}>Loading...</span>
+        </div>
       )
      }else if(pokemons.length ===1){
       return (
-        <div>
-        <form onSubmit={(e)=>handleSubmit(e)}>
-            <input name="name" onChange={(e)=>handleChange(e)}/>
-            <button type="submit">Search</button>
-        </form>
+        <div className={style.home_container}>
+        <div className={style.searchbar_container}>
+            <form onSubmit={(e)=>handleSubmit(e)}>
+                <input className={style.searchbar} placeholder="Search pokemon..." name="name" onChange={(e)=>handleChange(e)}/>
+                <button className={style.search_button} type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            </div>
+            {console.log(pokemons[0].types)}
   <h1>Pokemon</h1>
   <Card id={pokemons[0].id} name={pokemons[0].name} type1={`assets/${pokemons[0].types[0]}.png`} type2={pokemons[0].types[1]?`assets/${pokemons[0].types[1]}.png`:""} image={pokemons[0].image}/>
       </div>
@@ -271,41 +281,50 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
         stats = stats.filter((e)=>e!=="name"&&e!=="id"&&e!=="image"&&e!=="types")
       }
     return(
-        <div>
+        <div className={style.home_container}>
+          <div className={style.searchbar_container}>
             <form onSubmit={(e)=>handleSubmit(e)}>
-                <input name="name" onChange={(e)=>handleChange(e)}/>
-                <button type="submit">Search</button>
+                <input className={style.searchbar} placeholder="Search pokemon..." name="name" onChange={(e)=>handleChange(e)}/>
+                <button className={style.search_button} type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
-      <h1>Pokemon</h1>
-      {/* <img style={{height:"50px", width:"50px"}} src={`assets/poison.png`}/> */}
-      <select name="ordenar por" onChange={(e)=>setOrdPoke(e.target.value)}>
-        <option value="orderDesc">orderDesc</option>
-        <option value="orderAsc">orden ascendente</option>
+            </div>
+
+      <div className={style.select_container}>
+      <span className={style.select_span}>Filter by:</span>
+      
+      <select className={style.select} name="ordenar por" onChange={(e)=>setOrdPoke(e.target.value)}>
+      <option hidden="hidden">Alphabet</option>
+        <option className={style.options} value="orderDesc">Z-A</option>
+        <option className={style.options} value="orderAsc">A-Z</option>
       </select>
 
-      <select name="order by type" onChange={(e)=>setTypeState(e.target.value)}>
-        {types?types.map((ty)=><option value={ty}>{ty}</option>):""}
+      <select className={style.select} name="order by type" onChange={(e)=>setTypeState(e.target.value)}>
+      <option hidden="hidden">Types</option>
+        {types?types.map((ty)=><option className={style.options} value={ty}>{ty}</option>):""}
       </select>
 
-      <select name="orderByStats" onChange={(e)=>setStatState(e.target.value)}>
-      {stats?stats.map((st)=><option value={st}>{st}</option>):""}
+      <select className={style.select} name="orderByStats" onChange={(e)=>setStatState(e.target.value)}>
+      <option hidden="hidden">Stats</option>
+      {stats?stats.map((st)=><option className={style.options} value={st}>{st}</option>):""}
       </select>
 
-      <select name="orderByOrigin" onChange={(e)=>setOrdPoke(e.target.value)}>
-        <option value="dbPoke">data base poke</option>
-        <option value="apiPoke">api poke</option>
+      <select className={style.select} name="orderByOrigin" onChange={(e)=>setOrdPoke(e.target.value)}>
+        <option hidden="hidden">Origin</option>
+        <option className={style.options} value="dbPoke">data base poke</option>
+        <option className={style.options} value="apiPoke">api poke</option>
       </select>
-      {/* <button name="orderAsc" onClick={()=>setOrdPoke("orderAsc")}>Ordenar array alfabéticamente asc</button>
-      <button name="orderDesc" onClick={()=>setOrdPoke("orderDesc")}>Ordenar array alfabéticamente desc</button>
-      <button name="dbPoke" onClick={()=>setOrdPoke("dbPoke")}>Creado por nosotros</button>
-      <button name="apiPoke" onClick={()=>setOrdPoke("apiPoke")}>Pokemon clásicos</button> */}
-      <button name="filtCleaning" onClick={()=>{setOrdPoke("");setStatState("");setTypeState("")}}>Clean filters</button>
-      <button name="prev" onClick={(e)=>handlePage(e)}>Prev</button>
-      <button name="next" onClick={(e)=>handlePage(e)}>Next</button>
+      <button className={style.filt_button} name="filtCleaning" onClick={()=>{setOrdPoke("");setStatState("");setTypeState("")}}>Clean filters</button>
+      </div>
+
+      <div className={style.prev_next_container}>
+      <button className={style.prev_next_buttons} name="prev" onClick={(e)=>handlePage(e)}> Prev </button>
+      <button className={style.prev_next_buttons} name="next" onClick={(e)=>handlePage(e)}> Next </button>
+      </div>
+
       {console.log("MIS POKEMON QUE RENDERIZO: ", pokemonsButtons)}
       <div>
       {
-      pokemonsButtons&&pokemonsButtons.length>0?pokemonsButtons.map(poke=><Card id={poke.id} name={poke.name} type1={`assets/${poke.types[0]}.png`} type2={poke.types[1]?`assets/${poke.types[1]}.png`:""} image={poke.image}/>):"No hay pokemon que coincida con ese filtro"
+      pokemonsButtons&&pokemonsButtons.length>0?pokemonsButtons.map(poke=><Card id={poke.id} name={poke.name} type1={`assets/${poke.types[0]}.png`} type2={poke.types[1]?`assets/${poke.types[1]}.png`:""} image={poke.image}/>):<span className={style.span_filt}>There's no pokemon with that filter</span>
       }
       </div>
      </div>

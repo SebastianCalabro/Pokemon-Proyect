@@ -102,7 +102,7 @@ app.get("/pokemons",async (req, res)=>{
     .then(data=>{arrEnv.push({
         name:data.data.name,
         image:data.data.sprites.front_default,
-        types:data.data.types.map(e=> e.type.name).join(" - "),
+        types:data.data.types.map(e=> e.type.name),
         id:data.data.id
     }); return res.send(arrEnv)})
     .then(null,async e=>{
@@ -112,7 +112,7 @@ app.get("/pokemons",async (req, res)=>{
             return res.send([{
                 name:pokeFilt[0].name,
                 image:pokeFilt[0].image,
-                types:pokeFilt[0].tipos.map(e=>e.name).join(" - "),
+                types:pokeFilt[0].tipos.map(e=>e.name),
                 id:pokeFilt[0].id
             }])
         }else{return res.send("No existe ese pokemon")}

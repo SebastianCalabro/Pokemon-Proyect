@@ -1,0 +1,68 @@
+.card_container{
+    display: inline-block;
+    position: relative;
+    height: 200px;
+    width: 150px;
+    border-radius: 30px;
+    margin: 35px;
+    box-shadow: 10px,10px;
+    border: 1px solid #525252;
+    transition: box-shadow 0.2s;
+}
+.link_container{
+    background-color: #222224;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+}
+.div_background{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: red; */
+  filter: blur(1px);
+  z-index: -1;
+}
+.div_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pokemon_name{
+    font-family: Saira;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+.type_container{
+    display: flex;
+}
+.types{
+    height: 25px;
+    width: 25px;
+}
+.pokemon_image{
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
+.break{
+    height: 1px;
+    width: 100%;
+    background-color: #dadada;
+    margin-bottom: 5px;
+}
+.card_container:hover{
+    box-shadow: 0 0 30px rgba(66, 66, 66, 0.4); 
+}
+.pokemon_name:hover{
+    color: rgb(228, 10, 10);
+    text-shadow: 0 2px 4px rgba(66, 66, 66, 0.5);
+}

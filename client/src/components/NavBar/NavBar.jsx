@@ -2,18 +2,24 @@ import React from "react";
 import {Link} from "react-router-dom"
 import { connect } from 'react-redux';
 import {getAllPokemon} from "../../Redux/actions/index.js"
-// import style from "../NavBar/NavBar.css"
+import style from "./NavBar.module.css"
 
 function Nav ({getAllPokemon}) {
   
     return (
       <div>
-       <Link to={`/`} onClick={()=>getAllPokemon()}>
-        <h3>Home</h3>
+      <div className={style.nav_container}>
+        <img src="../../assets/pokeball-logo.jpg" alt="logo" className={style.logo} />
+      <div className={style.links_container}>
+       <Link to={`/`} className={`${style.link1}`} onClick={()=>getAllPokemon()}>
+        <h3 /* className={style.home} */>Home</h3>
        </Link>
-       <Link to={`/create`} onClick={()=>getAllPokemon()}>
-        <h3>Create your pokemon</h3>
+       <Link to={`/create`} className={`${style.link2}`} onClick={()=>getAllPokemon()}>
+        <h3 /* className={style.create} */>Create your pokemon</h3>
        </Link>
+       </div>
+       </div>
+       <div className={style.break}></div>
        </div>
     );
   };

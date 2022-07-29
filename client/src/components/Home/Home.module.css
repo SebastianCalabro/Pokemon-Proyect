@@ -1,0 +1,150 @@
+.home_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.select_span{
+    font-family: Oswald;
+    margin-right: 30px;
+    font-size: 20px;
+}
+.searchbar_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px;
+    margin-top: 25px;
+}
+.select_container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.prev_next_container{
+    margin-top: 10px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+.prev_next_buttons{
+    font-size: 17px;
+    height: 30px;
+    width: 50px;
+    margin: 0 10px;
+    background-color: #222224;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    font-family: Oswald;
+    font-weight: 100;
+}
+.span_filt{
+    font-family: Oswald;
+    font-size: 30px;
+    margin-top: 100px;
+}
+.searchbar{
+    height: 30px;
+    width: 300px;
+    background: linear-gradient(to right, #222224, #5b5b5c);
+    font-size: 15px;
+    font-family: Saira;
+    color: white;
+    border: 1px none black;
+    border-radius: 30px;
+    margin-right: 3px;
+    transition: box-shadow 0.3s;
+}
+.search_button{
+    border-style: none;
+    background-color: #222224;
+    font-size: 15px;
+    color: white;
+    height: 30px;
+    border-radius: 20px;
+}
+.select{
+    width: 120px;
+    font-family: Saira;
+    height: 28px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+    margin-left: 5px;
+    margin-right: 5px;
+    border-style: none;
+    border-radius: 5px;
+    color: aliceblue;
+    background: linear-gradient(to right, #525252, rgb(158, 158, 158));
+    transition: box-shadow 0.3s;
+}
+.filt_button{
+    margin-left: 5px;
+    border-style: none;
+    background-color: #222224;
+    font-size: 15px;
+    color: white;
+    height: 30px;
+    border-radius: 20px;
+    font-family: Saira;
+}
+.options{
+    background-color: rgb(65, 65, 65);
+}
+.span_load{
+    font-family: Oswald;
+    font-weight: 900;
+    font-size: 40px;
+    position: relative;
+    left:15px
+}
+.pikachu_fail{
+    height: 300px;
+    width: 300px;
+
+}
+.span_fail{
+    font-family: Oswald;
+    margin-top: 150px;
+    font-size: 30px;
+}
+.snorlax_load{
+    margin-top: 150px;
+    height: 150px;
+    width: 150px;
+    
+}
+.search_button:hover{
+    cursor: pointer;
+    
+}
+.search_button:active{
+    box-shadow: -3px 3px 5px rgb(109, 109, 109);
+}
+.filt_button:hover{
+    cursor: pointer;
+}
+.select:hover{
+    cursor: pointer;
+}
+.filt_button:active{
+    box-shadow: -3px 3px 5px rgb(109, 109, 109);
+}
+.searchbar::placeholder{
+    color: #a1a1a1;
+}
+.searchbar:focus{
+    outline: none;
+    box-shadow: -3px 3px 5px rgb(109, 109, 109);
+} 
+.select:focus{
+    outline: none;
+    box-shadow: -3px 3px 5px rgb(109, 109, 109);
+}
+.prev_next_buttons:hover{
+    cursor: pointer;
+}
+.prev_next_buttons:active{
+    box-shadow: -3px 3px 5px rgb(109, 109, 109);
+}
