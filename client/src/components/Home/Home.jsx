@@ -247,7 +247,7 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
     if(typeof(pokemons)==="string"){
       return (
         <div className={style.home_container}>
-        <span className={style.span_fail}>That pokemon doesn't exists :(</span>
+        <span className={style.span_fail}>That pokemon doesn't exist :(</span>
         <img className={style.pikachu_fail} src="assets/pikachu.png" alt="" />
         </div>
       )
@@ -310,8 +310,8 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
 
       <select className={style.select} name="orderByOrigin" onChange={(e)=>setOrdPoke(e.target.value)}>
         <option hidden="hidden">Origin</option>
-        <option className={style.options} value="dbPoke">data base poke</option>
-        <option className={style.options} value="apiPoke">api poke</option>
+        <option className={style.options} value="dbPoke">created by me</option>
+        <option className={style.options} value="apiPoke">clasic</option>
       </select>
       <button className={style.filt_button} name="filtCleaning" onClick={()=>{setOrdPoke("");setStatState("");setTypeState("")}}>Clean filters</button>
       </div>

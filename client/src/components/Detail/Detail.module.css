@@ -1,0 +1,118 @@
+.box{
+    margin-top: 100px;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.detail_container{
+    height: 600px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #222224;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #ee5555, #b90101);
+    transition: box-shadow 0.5s;
+}
+.type_container{
+    margin-left: 75px;
+}
+.span_type{
+    margin-left: 10px;
+    font-family: Oswald;
+    font-size: 30px;
+    font-weight: 100;
+    letter-spacing: 4px;
+}
+.type_separator{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.pokemon_name{
+    font-family: Oswald;
+    font-size: 50px;
+    letter-spacing: 10px;
+    font-weight: 900;
+}
+.div_name{
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+}
+.div_img_types{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.pokemon_image{
+    height: 300px;
+    width: 300px;
+    margin-right: 75px;
+    filter: drop-shadow(0 0 10px rgb(15, 15, 15));
+}
+.type_image{
+    height: 70px;
+    width: 70px;
+    margin-right: 10px;
+}
+.ul_container{
+    display: flex;
+    background: linear-gradient(to right, #030303, #363636);
+    width: 800px;
+    height: 115px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+    box-shadow: 0 0 5px black;
+    border: 2px solid black
+}
+.h_w{
+    display: block;
+    font-family: Oswald;
+    font-size: 20px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.break{
+    height: 1px;
+    width: 100%;
+    background-color: #222224;
+}
+.load_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.span_load{
+    font-family: Oswald;
+    font-weight: 900;
+    font-size: 40px;
+    position: relative;
+    left:15px
+}
+.snorlax_load{
+    margin-top: 150px;
+    height: 150px;
+    width: 150px;
+    
+}
+ul{
+    list-style-type: none;
+}
+li{
+    display: block;
+    font-family: Oswald;
+    font-size: 20px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.detail_container:hover{
+    box-shadow: 0 0 20px black;
+}

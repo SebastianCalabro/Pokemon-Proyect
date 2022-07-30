@@ -119,17 +119,12 @@
     cursor: pointer;
     
 }
-.search_button:active{
-    box-shadow: -3px 3px 5px rgb(109, 109, 109);
-}
+
 .filt_button:hover{
     cursor: pointer;
 }
 .select:hover{
     cursor: pointer;
-}
-.filt_button:active{
-    box-shadow: -3px 3px 5px rgb(109, 109, 109);
 }
 .searchbar::placeholder{
     color: #a1a1a1;
