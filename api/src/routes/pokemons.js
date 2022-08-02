@@ -44,7 +44,7 @@ app.get("/pokemons", async(req, res, next)=>{
     console.log("pokemon de base de datos3: ", dbPoke)
     dbPoke.map(e=>{ pokeArr.push(e)})
     // console.log(pokeArr)
-    res.send(pokeArr)
+    res.status(200).send(pokeArr)
 })
 
 app.get("/pokemons/:id", async(req, res, next)=>{

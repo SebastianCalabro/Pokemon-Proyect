@@ -11,7 +11,7 @@ function Nav ({getAllPokemon}) {
       <div className={style.nav_container}>
         <img src="../../assets/pokeball-logo.jpg" alt="logo" className={style.logo} />
       <div className={style.links_container}>
-       <Link to={`/`} className={`${style.link1}`} onClick={()=>getAllPokemon()}>
+       <Link to={`/home`} className={`${style.link1}`} onClick={()=>getAllPokemon()}>
         <h3 /* className={style.home} */>Home</h3>
        </Link>
        <Link to={`/create`} className={`${style.link2}`} onClick={()=>getAllPokemon()}>

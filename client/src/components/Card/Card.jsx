@@ -9,7 +9,7 @@ export default function Card ({id, type1, type2, name, image}) {
         <div className={style.div_background}></div>
         <div className={style.div_content}>
        <Link className={style.pokemon_name}  to={`/pokemons/${id}`}>
-        <h3 >{name}</h3>
+        <h3 >{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
        </Link>
        <img className={style.pokemon_image} src={image} alt={name}/>
        <div className={style.break}></div>
