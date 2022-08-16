@@ -5,11 +5,13 @@ import Detail from "./components/Detail/Detail.jsx"
 import Create from "./components/Create/Create.jsx"
 import LandingPage from "./components/LandingPage/LandingPage.jsx"
 import {Route} from "react-router-dom"
+import {Provider} from "react-redux"
 
 function App() {
   return (
     <>
-    <Nav/>
+  
+  <Nav/>
     <Route exact path="/" component={LandingPage}/>
     <Route exact path="/home" component={Home}/>
     <Route exact path='/pokemons/:pokemonId' component={Detail}/>
