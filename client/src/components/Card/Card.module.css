@@ -35,11 +35,8 @@
 }
 .pokemon_name{
     font-family: Saira;
-    margin: 0;
-    padding: 0;
     text-decoration: none;
     color: black;
-    transition: color 0.2s, text-shadow 0.2s;
 }
 .type_container{
     display: flex;
@@ -61,8 +58,4 @@
 }
 .card_container:hover{
     box-shadow: 0 0 30px rgba(66, 66, 66, 0.4); 
-}
-.pokemon_name:hover{
-    color: rgb(228, 10, 10);
-    text-shadow: 0 2px 4px rgba(66, 66, 66, 0.5);
 }
