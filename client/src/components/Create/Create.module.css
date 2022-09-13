@@ -1,3 +1,9 @@
+.gral_container{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+
+}
 .create_title{
     margin: 0;
     font-family: Oswald;
@@ -6,14 +12,16 @@
     text-align: center;
 }
 .box{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     margin-top: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
+    justify-content: space-around;
 }
 .input_container{
     display: flex;
     flex-direction: row;
-justify-content: space-between;
+justify-content: space-around;
 }
 .input_div{
     display: flex;
@@ -59,16 +67,19 @@ justify-content: space-between;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 .types_container{
-    width: 500px;
+    width: 350px;
     height: 420px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    position: relative;
-    left: 10px;
+    background-color: #222224;
+    border-radius: 30px;
+    border: 1px solid #030303;
+    box-shadow: 0 0 20px 1px black;
 }
 .each_type_div{
     width: 100px;
@@ -80,7 +91,7 @@ justify-content: space-between;
     color: red;
     font-family: Oswald;
     font-size: 18px;
-    text-shadow: 0px 0px 2px black;
+    text-shadow: 0px 0px 1px rgb(0, 0, 0),0px 0px 1px rgb(0, 0, 0),0px 0px 2px rgba(0, 0, 0, 0.356),0px 0px 1px rgba(0, 0, 0, 0.356);
     letter-spacing: 1px;
 }
 .type_checkbox{
@@ -96,14 +107,12 @@ justify-content: space-between;
     
   }
 .submit_container{
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    right: 45vw;
-    top: 85vh;
-    height: 200px;
-    width: 200px;
+    height: fit-content;
+    width: fit-content;
 } .submit_button{
     border-style: none;
     background-color: #222224;
@@ -114,12 +123,16 @@ justify-content: space-between;
     border-radius: 20px;
     font-family: Saira;
 }
+.prev_and_submit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
 .preview_div{
     display: flex;
     flex-direction: column;
-    position: absolute;
-    margin-top: 20px;
-    left: 35vw;
     width: 300px;
     height: 350px;
     background-color: #222224;

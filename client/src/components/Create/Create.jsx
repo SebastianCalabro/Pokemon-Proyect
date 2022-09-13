@@ -322,12 +322,14 @@ const Create = ({types, getTypes, createPokemon})=> {
       )
      }
     return (
-      <div>
+      <div className={style.gral_container}>
         <h1 className={style.create_title}>Create your own pokemon!</h1>
+         <form className={style.input_container} onSubmit={(e)=>handleSubmit(e)}>
+        
       <div className={style.box}>
-       <form className={style.input_container} onSubmit={(e)=>handleSubmit(e)}>
+      
 
-
+      
       <div className={style.stats_container}>
 
         <div className={style.input_div}>
@@ -380,8 +382,20 @@ const Create = ({types, getTypes, createPokemon})=> {
        <span className={style.validate} id="height_span"></span>
        </div>
        </div>
+       
+      <div className={style.prev_and_submit}>
+       <div className={style.preview_div}>
+        <h2 className={style.preview_title}>PREVIEW</h2>
+        <div className={style.break}></div>
+        {pc.image?<img className={style.preview_img} src={pc.image} alt=""/>:<div className={style.no_image}>PNG image recomended
+        </div>}
+      </div>
+      <div className={style.submit_container}>
+       <button className={style.submit_button} type="submit">CREATE POKEMON</button>
+       </div>
+      </div>
       
-      <div className={style.types_and_span}><div className={style.types_container}>{types?types.map((ty)=><div className={style.each_type_div}><input className={style.type_checkbox} onChange={(e)=>handleTypes(e)} type="checkbox" id={ty} name={ty}/><img className={style.type_image} for={ty} src={`assets/${ty}.png`}/><label className={style.label_type} for={ty}>{ty}</label></div>):"no hay tipos"}</div><span className={style.validate} id="types_span"></span></div>
+      <div className={style.types_and_span}><div className={style.types_container}>{types?types.map((ty)=><div className={style.each_type_div}><input className={style.type_checkbox} onChange={(e)=>handleTypes(e)} type="checkbox" id={ty} name={ty}/><img className={style.type_image} alt="" for={ty} src={`assets/${ty}.png`}/><label className={style.label_type} for={ty}>{ty}</label></div>):"no hay tipos"}</div><span className={style.validate} id="types_span"></span></div>
       
       
       {/* <input type="checkbox" id="normal" name="normal"/>
@@ -402,12 +416,9 @@ const Create = ({types, getTypes, createPokemon})=> {
       <input type="checkbox" id="water" name="water"/>
       <input type="checkbox" id="psychic" name="psychic"/>
       <input type="checkbox" id="electric" name="electric"/> */}
-      <div className={style.preview_div}><h2 className={style.preview_title}>PREVIEW</h2><div className={style.break}></div>{pc.image?<img className={style.preview_img} src={pc.image} alt=""/>:<div className={style.no_image}>PNG image recomended</div>}</div>
-      <div className={style.submit_container}>
-       <button className={style.submit_button} type="submit">CREATE POKEMON</button>
-       </div>
-       </form>
+      
       </div>
+      </form>
       </div>
     );
   };
