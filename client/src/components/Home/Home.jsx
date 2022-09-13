@@ -173,7 +173,6 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
         break;
         case "bug":
         pokemonsButtons = pokemonsButtons.filter((e)=>e.types[0]==="bug"||e.types[1]==="bug")
-        console.log("mis pokes de bicho: ", pokemonsButtons)
         break;
         case "ghost":
         pokemonsButtons = pokemonsButtons.filter((e)=>e.types[0]==="ghost"||e.types[1]==="ghost")

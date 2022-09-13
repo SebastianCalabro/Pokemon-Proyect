@@ -5,20 +5,20 @@ import style from "./Card.module.css"
 export default function Card ({id, type1, type2, name, image}) {
   
     return (
+      <Link to={`pokemons/${id}`}>
       <div className={style.card_container}>
         <div className={style.div_background}></div>
         <div className={style.div_content}>
-       <Link className={style.pokemon_name}  to={`/pokemons/${id}`}>
-        <h3 >{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
-       </Link>
+        <h3 className={style.pokemon_name}>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
        <img className={style.pokemon_image} src={image} alt={name}/>
        <div className={style.break}></div>
        <div className={style.type_container}>
-       <img className={style.types} src={type1} alt="" />
-       {type2?<img className={style.types} src={type2}/>:""}
+       <img className={style.types} src={type1} alt={type1} />
+       {type2?<img className={style.types} src={type2} alt={type2}/>:""}
        </div>
        </div>
       </div>
+      </Link>
     );
   };
 
