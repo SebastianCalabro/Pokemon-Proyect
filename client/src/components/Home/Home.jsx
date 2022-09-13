@@ -245,14 +245,22 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
     //  console.log("mi clean state esta en2: ",cleanState)
     if(typeof(pokemons)==="string"){
       return (
-        <div className={style.home_container}>
-        <span className={style.span_fail}>That pokemon doesn't exist :(</span>
-        <img className={style.pikachu_fail} src="assets/pikachu.png" alt="" />
-        </div>
+          <div className={style.search_failed}>
+            <div className={style.searchbar_container}>
+            <form onSubmit={(e)=>handleSubmit(e)}>
+              <input className={style.searchbar} placeholder="Search pokemon..." name="name" onChange={(e)=>handleChange(e)}/>
+              <button className={style.search_button} type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+            <div className={style.cards}>
+              <span className={style.span_fail}>That pokemon doesn't exist :(</span>
+              <img className={style.pikachu_fail} src="assets/pikachu.png" alt="" />
+            </div>
+          </div>
       )
      }else if(typeof(pokemons[0])==="string"||pokemons.length<1){
       return(
-        <div className={style.home_container}>
+        <div className={style.loading_container}>
         <img className={style.snorlax_load} src="assets/snorlax.png"/>
         <span className={style.span_load}>Loading...</span>
         </div>
@@ -266,9 +274,10 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
                 <button className={style.search_button} type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             </div>
-            {console.log(pokemons[0].types)}
-  <h1>Pokemon</h1>
-  <Card id={pokemons[0].id} name={pokemons[0].name} type1={`assets/${pokemons[0].types[0]}.png`} type2={pokemons[0].types[1]?`assets/${pokemons[0].types[1]}.png`:""} image={pokemons[0].image}/>
+            
+            <div className={style.cards}>
+              <Card id={pokemons[0].id} name={pokemons[0].name} type1={`assets/${pokemons[0].types[0]}.png`} type2={pokemons[0].types[1]?`assets/${pokemons[0].types[1]}.png`:""} image={pokemons[0].image}/>
+            </div>
       </div>
       )
      }/* else if(pokemonsButtons.length<1){
@@ -321,7 +330,7 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
       </div>
 
       {console.log("MIS POKEMON QUE RENDERIZO: ", pokemonsButtons)}
-      <div>
+      <div className={style.cards}>
       {
       pokemonsButtons&&pokemonsButtons.length>0?pokemonsButtons.map(poke=><Card id={poke.id} name={poke.name} type1={`assets/${poke.types[0]}.png`} type2={poke.types[1]?`assets/${poke.types[1]}.png`:""} image={poke.image}/>):<span className={style.span_filt}>There's no pokemon with that filter</span>
       }
