@@ -11,13 +11,13 @@ function Nav ({getAllPokemon}) {
       <div className={style.nav_container}>
         <img src="../../assets/pokeball-logo.jpg" alt="logo" className={style.logo} />
       <div className={style.links_container}>
-      <Link to={`/about`} className={`${style.link1}`} onClick={()=>getAllPokemon()}>
+      <Link to={`/about`} className={`${style.links}`} onClick={()=>getAllPokemon()}>
         <h3 /* className={style.home} */>About</h3>
        </Link>
-       <Link to={`/home`} className={`${style.link1}`} onClick={()=>getAllPokemon()}>
+       <Link to={`/home`} className={`${style.links}`} onClick={()=>getAllPokemon()}>
         <h3 /* className={style.home} */>Home</h3>
        </Link>
-       <Link to={`/create`} className={`${style.link2}`} onClick={()=>getAllPokemon()}>
+       <Link to={`/create`} className={`${style.links}`} onClick={()=>getAllPokemon()}>
         <h3 /* className={style.create} */>Create your pokemon</h3>
        </Link>
        </div>
