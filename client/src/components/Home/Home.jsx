@@ -10,7 +10,6 @@ import style from "./Home.module.css"
 const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
   
     useEffect(()=>{
-      console.log("en el use effect")
         getAllPokemon()
         getTypes()
     },[])
@@ -27,16 +26,17 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
 
     //  console.log("mi clean filter esta en: ", cleanState)
      
-
-     let pokemonsButtons = pokemons.slice()
-     if(page===0){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(0,12);}
-     if(page===1){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(12, 24);}
-     if(page===2){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(24, 36);}
-     if(page===3){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(36, 48);}
-     console.log("mi page", page)
+     let pokemonsButtons = []
+     console.log(typeof(pokemons))
+     typeof(pokemons) !== "string"? pokemonsButtons = pokemons.slice() : pokemonsButtons = [];
+     if(page===0&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(0,12);}
+     if(page===1&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(12, 24);}
+     if(page===2&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(24, 36);}
+     if(page===3&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(36, 48);}
+     /* console.log("mi page", page) */
      console.log("mi pokemons buttons", pokemonsButtons)
     //  console.log("ultimo consoleee p",pokemons)
-     console.log("ordPoke pa", ordPoke)
+    /*  console.log("ordPoke pa", ordPoke) */
 
      
      let handlePage = (e)=>{
@@ -51,8 +51,8 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
         setPokemon({...pokemon,[e.target.name]:e.target.value})
     }
      let handleSubmit=(e)=>{
+      e.preventDefault()
         console.log('handleSubmit Prod:',pokemon);
-        e.preventDefault()
         console.log(e.target.value)
         getAPokemon(pokemon.name)
      }
@@ -329,7 +329,6 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
       <button className={style.prev_next_buttons} name="next" onClick={(e)=>handlePage(e)}> Next </button>
       </div>
 
-      {console.log("MIS POKEMON QUE RENDERIZO: ", pokemonsButtons)}
       <div className={style.cards}>
       {
       pokemonsButtons&&pokemonsButtons.length>0?pokemonsButtons.map(poke=><Card id={poke.id} name={poke.name} type1={`assets/${poke.types[0]}.png`} type2={poke.types[1]?`assets/${poke.types[1]}.png`:""} image={poke.image}/>):<span className={style.span_filt}>There's no pokemon with that filter</span>
