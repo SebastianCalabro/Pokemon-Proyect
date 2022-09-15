@@ -76,3 +76,9 @@
 .link:hover{
     transform: scale(1.2);
 }
+@media (min-width: 1600px) {
+    .box{
+        height: 90vh;
+        margin-top: 60px;
+    }
+}

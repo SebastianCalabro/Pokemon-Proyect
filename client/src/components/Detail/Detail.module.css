@@ -1,9 +1,10 @@
 .box{
     margin-top: 100px;
-    height: 100%;
+    height: 130vh;
     width: 100vw;
     display: flex;
     justify-content: center;
+
 }
 .detail_container{
     height: 600px;
@@ -88,18 +89,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    height: 130vh;
 }
 .span_load{
     font-family: Oswald;
     font-weight: 900;
-    font-size: 40px;
+    font-size: 60px;
     position: relative;
     left:15px
 }
 .snorlax_load{
     margin-top: 150px;
-    height: 150px;
-    width: 150px;
+    height: 300px;
+    width: 300px;
     
 }
 ul{
@@ -115,4 +118,13 @@ li{
 }
 .detail_container:hover{
     box-shadow: 0 0 20px black;
+}
+@media (min-width: 1600px) {
+    .box{
+        height: 90vh;
+    }
+    .load_container{
+        height: 90vh;
+        justify-content: center;
+    }
 }

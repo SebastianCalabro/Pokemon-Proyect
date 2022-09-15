@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     height: 130vh;
 }
 .search_failed{
@@ -16,6 +17,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 130vh;
 }
 .select_span{
     font-family: Oswald;
@@ -125,13 +127,6 @@
 .options{
     background-color: rgb(65, 65, 65);
 }
-.span_load{
-    font-family: Oswald;
-    font-weight: 900;
-    font-size: 40px;
-    position: relative;
-    left:15px
-}
 .pikachu_fail{
     height: 300px;
     width: 300px;
@@ -142,10 +137,17 @@
     margin-top: 150px;
     font-size: 30px;
 }
+.span_load{
+    font-family: Oswald;
+    font-weight: 900;
+    font-size: 60px;
+    position: relative;
+    left:15px
+}
 .snorlax_load{
     margin-top: 150px;
-    height: 150px;
-    width: 150px;
+    height: 300px;
+    width: 300px;
     
 }
 .search_button:hover{
@@ -181,6 +183,13 @@
         height: 90vh;
     }
     .loading_container{
-        height: 990vh;
+        height: 90vh;
+    }
+    .search_failed{
+        height: 90vh;
+    }
+    .loading_container{
+        display: flex;
+        justify-content: center;
     }
 }

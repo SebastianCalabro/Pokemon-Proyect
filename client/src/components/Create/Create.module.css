@@ -86,6 +86,7 @@ justify-content: space-around;
     border-radius: 30px;
     border: 1px solid #030303;
     box-shadow: 0 0 20px 1px black;
+    margin-bottom: 10px;
 }
 .each_type_div{
     width: 100px;
@@ -219,5 +220,6 @@ justify-content: space-around;
 @media (min-width: 1600px) {
     .gral_container{
         height: 90vh;
+        transform: scale(1.1);
     }
 }
