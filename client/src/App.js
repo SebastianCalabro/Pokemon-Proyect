@@ -3,7 +3,6 @@ import Home from "./components/Home/Home.jsx"
 import Nav from "./components/NavBar/NavBar.jsx"
 import Detail from "./components/Detail/Detail.jsx"
 import Create from "./components/Create/Create.jsx"
-import LandingPage from "./components/LandingPage/LandingPage.jsx"
 import About from "./components/About/About.jsx"
 import {Route} from "react-router-dom"
 
@@ -14,8 +13,7 @@ function App() {
     <>
   
   <Nav/>
-    <Route exact path="/" component={LandingPage}/>
-    <Route exact path="/home" component={Home}/>
+    <Route exact path="/" component={Home}/>
     <Route exact path='/pokemons/:pokemonId' component={Detail}/>
     <Route exact path='/create' component={Create}/>
     <Route exact path='/about' component={About}/>
