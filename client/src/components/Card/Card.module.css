@@ -1,10 +1,11 @@
+.link_box{
+    margin: 35px;
+}
 .card_container{
     display: inline-block;
-    position: relative;
     height: 200px;
     width: 150px;
     border-radius: 30px;
-    margin: 35px;
     box-shadow: 10px,10px;
     border: 1px solid #3d3d3d;
     transition: box-shadow 0.2s;

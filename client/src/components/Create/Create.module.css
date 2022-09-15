@@ -2,9 +2,12 @@
     height: 90vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    height: 130vh;
 }
 .create_title{
     margin: 0;
+    margin-bottom: 50px;
     font-family: Oswald;
     letter-spacing: 2px;
     font-size: 60px;
@@ -212,4 +215,9 @@ justify-content: space-around;
 .input:focus{
     outline: 1px solid (0, 128, 0, 0);
     transform: scale(1.05);
+}
+@media (min-width: 1600px) {
+    .gral_container{
+        height: 90vh;
+    }
 }

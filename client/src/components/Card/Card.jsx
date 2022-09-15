@@ -5,7 +5,7 @@ import style from "./Card.module.css"
 export default function Card ({id, type1, type2, name, image}) {
   
     return (
-      <Link to={`pokemons/${id}`}>
+      <Link className={style.link_box} to={`pokemons/${id}`}>
       <div className={style.card_container}>
         <div className={style.div_background}></div>
         <div className={style.div_content}>
