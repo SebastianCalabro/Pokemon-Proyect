@@ -14,7 +14,7 @@ function Nav ({getAllPokemon}) {
       <Link to={`/about`} className={`${style.links}`} onClick={()=>getAllPokemon()}>
         <h3 /* className={style.home} */>About</h3>
        </Link>
-       <Link to={`/home`} className={`${style.links}`} onClick={()=>getAllPokemon()}>
+       <Link to={`/`} className={`${style.links}`} onClick={()=>getAllPokemon()}>
         <h3 /* className={style.home} */>Home</h3>
        </Link>
        <Link to={`/create`} className={`${style.links}`} onClick={()=>getAllPokemon()}>
