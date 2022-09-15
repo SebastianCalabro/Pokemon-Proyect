@@ -6,7 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import store from "./Redux/store/index"
 import {Provider} from "react-redux"
 import {BrowserRouter} from "react-router-dom"
+import axios from 'axios';
+import dotenv from "dotenv";
+dotenv.config();
 
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001"
 
 ReactDOM.render(
     <Provider store={store}>
