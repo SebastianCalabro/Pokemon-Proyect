@@ -1,0 +1,78 @@
+.box{
+    height: 575px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tecnologies_h1{
+    font-family: Oswald;
+    font-size: 50px;
+    letter-spacing: 10px;
+    margin-top: 80px;
+}
+.contact_h2{
+    font-family: Oswald;
+    font-size: 25px;
+    letter-spacing: 10px;
+    margin-top: 20px;
+}
+.link{
+    text-decoration: none;
+    color: #222224;
+    transition: transform 0.2s;
+}
+.icon1{
+    height: 85px;
+    width: 85px;
+}
+.icon2{
+    height: 80px;
+    width: 80px;
+}
+.tecnologies_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 20%;
+}
+.contact_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+}
+.react_icon{
+    height: 50px;
+    width: 50px;
+    color: rgb(8, 211, 211);
+    filter: drop-shadow(0 0 5px rgba(16, 110, 110, 0.671));
+}
+.redux_icon{
+    height: 50px;
+    width: 50px;
+    color: rgb(146, 74, 212);
+    filter: drop-shadow(0 0 5px rgba(99, 47, 148, 0.671));
+}
+.express_icon{
+    height: 50px;
+    width: 50px;
+    color: black;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.671));
+}
+.sequelize_icon{
+    height: 50px;
+    width: 50px;
+    color: rgb(113, 158, 224);
+    filter: drop-shadow(0 0 5px rgba(55, 87, 134, 0.671));
+}
+.jest_icon{
+    height: 50px;
+    width: 50px;
+    color: rgb(158, 65, 104);
+    filter: drop-shadow(0 0 5px rgba(109, 41, 69, 0.671));
+}
+.link:hover{
+    transform: scale(1.2);
+}

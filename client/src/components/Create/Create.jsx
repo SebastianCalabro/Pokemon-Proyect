@@ -315,7 +315,7 @@ const Create = ({types, getTypes, createPokemon})=> {
      }
      if (submitted===true){
       return(
-        <div>
+        <div className={style.go_home_container}>
           <span className={style.success}>Your pokemon was successfully created!</span>
           <span className={style.go_home}>(go home to see it)</span>
         </div>

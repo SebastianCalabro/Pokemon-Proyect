@@ -4,7 +4,7 @@ import Nav from "./components/NavBar/NavBar.jsx"
 import Detail from "./components/Detail/Detail.jsx"
 import Create from "./components/Create/Create.jsx"
 import LandingPage from "./components/LandingPage/LandingPage.jsx"
-import {About} from "./components/About/About.jsx"
+import About from "./components/About/About.jsx"
 import {Route} from "react-router-dom"
 
 import {Provider} from "react-redux"
