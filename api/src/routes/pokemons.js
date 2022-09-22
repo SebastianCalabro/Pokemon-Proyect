@@ -37,19 +37,14 @@ app.get("/pokemons", async(req, res, next)=>{
     .catch((e)=>res.send(e)) */
     let dbPoke = await Pokemon.findAll({include:Tipo})
     for(i in dbPoke){dbPoke[i].dataValues.types = []}
-    console.log("pokemon de base de datos1: ", dbPoke)
     for(i in dbPoke){dbPoke[i].tipos.map((e)=>{dbPoke[i].dataValues.types.push(e.name)})}
-    console.log("pokemon de base de datos2: ", dbPoke)
     for(i in dbPoke){dbPoke[i].dataValues.types = dbPoke[i].dataValues.types}
-    console.log("pokemon de base de datos3: ", dbPoke)
     dbPoke.map(e=>{ pokeArr.push(e)})
-    // console.log(pokeArr)
     res.status(200).send(pokeArr)
 })
 
 app.get("/pokemons/:id", async(req, res, next)=>{
     let {id} = req.params
-    console.log("este es el id:",id)
     try{
         
 
@@ -120,7 +115,6 @@ app.get("/pokemons",async (req, res)=>{
 })
 
 app.get("/types",async(req,res)=>{
-    console.log("ESTOY EN EL GET DE TYPES")
     await axios.get(`https://pokeapi.co/api/v2/type`)
     .then(data=>{
         let typeArr = data.data.results.map((e)=>e.name);
@@ -133,19 +127,13 @@ app.get("/types",async(req,res)=>{
 
 app.post("/pokemons",async(req,res)=>{
         let {name, image, types, hp, attack, defense, speAtt, speDef, speed, height, weight} = req.body
-        console.log("mis tipos: ", types)
-        console.log(req.body)
-        /* if(!types||types.length<1){return res.send("No se enviaron los tipos")} */
         if(types.length===1){
             let myTypes = await Tipo.findAll({where:{name:types[0]},
             attributes:["id"]})
             let filtTypes = []
             for(i in myTypes){filtTypes.push(myTypes[i].dataValues.id)}
-            console.log("my types chavale:", myTypes)
             let myPkm = await Pokemon.findOne({where:{name:name}})
-            // console.log("mi imagen es: ",image)
             if(myPkm){return res.send("Ya existe ese pokemon")}
-            console.log("antes del then")
             Pokemon.create({name,image,hp,attack,defense,speAtt,speDef,speed,height,weight})
             .then(async data=>{await data.setTipos(filtTypes);console.log("dentro del then");return res.send(data)})
             .catch(e=>res.send("Hubo un error en POST"))
@@ -157,9 +145,7 @@ app.post("/pokemons",async(req,res)=>{
         attributes:["id"]})
         let filtTypes = []
         for(i in myTypes){filtTypes.push(myTypes[i].dataValues.id)}
-        console.log("my types chavale:", myTypes)
         let myPkm = await Pokemon.findOne({where:{name:name}})
-        // console.log("mi imagen es: ",image)
         if(myPkm){return res.send("Ya existe ese pokemon")}
         Pokemon.create({name,image,hp,attack,defense,speAtt,speDef,speed,height,weight})
         .then(async data=>{await data.setTipos(filtTypes);return res.send(data)})
