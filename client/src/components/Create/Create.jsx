@@ -61,7 +61,6 @@ const Create = ({types, getTypes, createPokemon})=> {
       let spanHeight = document.getElementById('height_span');
       let spanTypes = document.getElementById('types_span');
 
-      console.log("mis tipos ", pc.types)
 
       const pattern = new RegExp('^[A-Z]+$', 'i');
       spanTypes.textContent = ""
@@ -308,7 +307,6 @@ const Create = ({types, getTypes, createPokemon})=> {
         return;
       }
       // height
-      console.log("El pokemon que creo",pc)
       setSubmitted(true)
         e.preventDefault()
         createPokemon(pc)

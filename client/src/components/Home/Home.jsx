@@ -22,22 +22,13 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
      let [page,setPage]= useState(0)
      let [typeState,setTypeState]= useState("")
      let [statState,setStatState]= useState("")
-    //  let [cleanState,setCleanState]= useState("")
-
-    //  console.log("mi clean filter esta en: ", cleanState)
      
      let pokemonsButtons = []
-     console.log(typeof(pokemons))
      typeof(pokemons) !== "string"? pokemonsButtons = pokemons.slice() : pokemonsButtons = [];
      if(page===0&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(0,12);}
      if(page===1&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(12, 24);}
      if(page===2&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(24, 36);}
      if(page===3&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(36, 48);}
-     /* console.log("mi page", page) */
-     console.log("mi pokemons buttons", pokemonsButtons)
-    //  console.log("ultimo consoleee p",pokemons)
-    /*  console.log("ordPoke pa", ordPoke) */
-
      
      let handlePage = (e)=>{
       if(e.target.name==="prev"&&page>0){
@@ -52,8 +43,6 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
     }
      let handleSubmit=(e)=>{
       e.preventDefault()
-        console.log('handleSubmit Prod:',pokemon);
-        console.log(e.target.value)
         getAPokemon(pokemon.name)
      }
 
@@ -237,12 +226,6 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
       pokemonsButtons = pokemonsButtons.filter((e)=>e.id.toString().length < 4)
     }
 
-    /* if(cleanState==="ON"){
-      pokemonsButtons = pokemons.slice(0, 13)
-      setCleanState("")
-      page= 0
-     } */
-    //  console.log("mi clean state esta en2: ",cleanState)
     if(typeof(pokemons)==="string"){
       return (
           <div className={style.search_failed}>

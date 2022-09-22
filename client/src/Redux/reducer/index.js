@@ -10,7 +10,6 @@ const initialState = {
 const rootReducer = (state=initialState, action)=>{
     switch (action.type) {
         case "GET_ALL_POKEMON":
-          console.log("me llego la accion de home", action.payload)
           if(typeof(action.payload)!=="object"){
             return{
               ...state,
@@ -22,7 +21,6 @@ const rootReducer = (state=initialState, action)=>{
             pokemons:action.payload,
           }
         case "GET_POKEMON_DETAIL":
-            console.log("DETALLE", action.payload)
             if(typeof(action.payload)==="string"){
               return {
                 ...state,
@@ -35,20 +33,17 @@ const rootReducer = (state=initialState, action)=>{
           pokemons:[]
         }
         case "CREATE_POKEMON":
-          console.log("lo que recibo en reducer: ", action.payload)
           return{
           ...state,
           pokemons:[...state.pokemons,action.payload]
         }
         case "GET_A_POKEMON":
-            console.log("LO QUE RECIBO: ",action.payload)
             
           return{
           ...state,
           pokemons:action.payload
         }
         case "GET_TYPES":
-          console.log("mis Tipos: ",action.payload)
           return{
             ...state,
             types:action.payload

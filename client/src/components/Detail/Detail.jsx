@@ -12,12 +12,9 @@ const Detail = ({error, pokemonDetail, getPokemonDetail}) => {
 
 
     useEffect(()=>{
-      console.log("estoty adentre del use")
         getPokemonDetail(params.pokemonId)
     },[])
-
-    console.log("types del pokemon: ", pokemonDetail.types)
-
+    
     if(pokemonDetail.id===parseInt(params.pokemonId)||pokemonDetail.id===params.pokemonId){
     return (
       <div className={style.box}>
