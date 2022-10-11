@@ -135,7 +135,7 @@ app.post("/pokemons",async(req,res)=>{
             let myPkm = await Pokemon.findOne({where:{name:name}})
             if(myPkm){return res.send("Ya existe ese pokemon")}
             Pokemon.create({name,image,hp,attack,defense,speAtt,speDef,speed,height,weight})
-            .then(async data=>{await data.setTipos(filtTypes);console.log("dentro del then");return res.send(data)})
+            .then(async data=>{await data.setTipos(filtTypes);return res.send(data)})
             .catch(e=>res.send("Hubo un error en POST"))
         }else{
         let myTypes = await Tipo.findAll({where:{[Op.or]: [
