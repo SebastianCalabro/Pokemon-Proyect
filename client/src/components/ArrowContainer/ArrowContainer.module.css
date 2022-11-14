@@ -1,0 +1,30 @@
+.prev_next_container{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    width: 100%;
+    flex-direction: row;
+    border-top: 1px solid #5b5b5c;
+    border-bottom: 1px solid #5b5b5c;
+  /*   background-color: aqua; */
+}
+.prev_next_buttons{
+    font-size: 17px;
+    height: 30px;
+    width: 50px;
+    margin: 0 10px;
+    background-color: #222224;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    font-family: Oswald;
+    font-weight: 100;
+}
+.prev_next_buttons:hover{
+    cursor: pointer;
+}
+.prev_next_buttons:active{
+    box-shadow: -3px 3px 5px rgb(109, 109, 109);
+}
