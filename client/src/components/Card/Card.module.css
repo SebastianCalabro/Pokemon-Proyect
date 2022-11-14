@@ -60,3 +60,9 @@
 .card_container:hover{
     box-shadow: 0 0 30px rgba(66, 66, 66, 0.4); 
 }
+@media (max-width: 600px) {
+    .link_box{
+        transform: scale(3);
+        margin: 15rem;
+    }
+}

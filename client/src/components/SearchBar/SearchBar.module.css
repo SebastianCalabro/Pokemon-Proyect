@@ -38,3 +38,9 @@
     outline: none;
     box-shadow: -3px 3px 5px rgb(109, 109, 109);
 }
+@media (max-width: 600px) {
+    .searchbar_container{
+        margin:0;
+        transform: scale(2.1);
+    }
+}
