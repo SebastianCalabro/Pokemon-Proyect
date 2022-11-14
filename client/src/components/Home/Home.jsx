@@ -4,7 +4,9 @@ import { getAllPokemon, getAPokemon, getTypes } from '../../Redux/actions/index.
 import Card from '../Card/Card.jsx';
 import {useEffect, useState} from "react";
 import style from "./Home.module.css"
-// import poison from "../../assets/poison.png"
+import { SearchBar } from "../SearchBar/SearchBar.jsx";
+import { SelectContainer } from "../SelectContainer/SelectContainer.jsx";
+import { ArrowContainer } from "../ArrowContainer/ArrowContainer.jsx";
 
 
 const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
@@ -29,24 +31,6 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
      if(page===1&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(12, 24);}
      if(page===2&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(24, 36);}
      if(page===3&&typeof(pokemons)!=="string"){pokemonsButtons = pokemons.slice();pokemonsButtons = pokemonsButtons.slice(36, 48);}
-     
-     let handlePage = (e)=>{
-      if(e.target.name==="prev"&&page>0){
-        setPage(page-1)
-      }else if(e.target.name==="next"&&page<3){
-        setPage(page+1)
-      }
-      return;
-     }
-    let handleChange=(e)=>{
-        setPokemon({...pokemon,[e.target.name]:e.target.value})
-    }
-     let handleSubmit=(e)=>{
-      e.preventDefault()
-        getAPokemon(pokemon.name)
-     }
-
-     
 
      switch(statState){
       case "hp":
@@ -229,12 +213,7 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
     if(typeof(pokemons)==="string"){
       return (
           <div className={style.search_failed}>
-            <div className={style.searchbar_container}>
-            <form onSubmit={(e)=>handleSubmit(e)}>
-              <input className={style.searchbar} placeholder="Search pokemon..." name="name" onChange={(e)=>handleChange(e)}/>
-              <button className={style.search_button} type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-          </div>
+            <SearchBar/>
             <div className={style.cards}>
               <span className={style.span_fail}>That pokemon doesn't exist :(</span>
               <img className={style.pikachu_fail} src="assets/pikachu.png" alt="" />
@@ -244,19 +223,14 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
      }else if(typeof(pokemons[0])==="string"||pokemons.length<1){
       return(
         <div className={style.loading_container}>
-        <img className={style.snorlax_load} src="assets/snorlax.png"/>
+        <img className={style.snorlax_load} src="assets/snorlax.png" alt=""/>
         <span className={style.span_load}>Loading...</span>
         </div>
       )
      }else if(pokemons.length ===1){
       return (
         <div className={style.home_container}>
-        <div className={style.searchbar_container}>
-            <form onSubmit={(e)=>handleSubmit(e)}>
-                <input className={style.searchbar} placeholder="Search pokemon..." name="name" onChange={(e)=>handleChange(e)}/>
-                <button className={style.search_button} type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-            </div>
+            <SearchBar/>
             
             <div className={style.cards}>
               <Card id={pokemons[0].id} name={pokemons[0].name} type1={`assets/${pokemons[0].types[0]}.png`} type2={pokemons[0].types[1]?`assets/${pokemons[0].types[1]}.png`:""} image={pokemons[0].image}/>
@@ -273,44 +247,11 @@ const Home = ({types, pokemons, getAllPokemon, getAPokemon, getTypes})=>{
       }
     return(
         <div className={style.home_container}>
-          <div className={style.searchbar_container}>
-            <form onSubmit={(e)=>handleSubmit(e)}>
-                <input className={style.searchbar} placeholder="Search pokemon..." name="name" onChange={(e)=>handleChange(e)}/>
-                <button className={style.search_button} type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-            </div>
+          <SearchBar/>
 
-      <div className={style.select_container}>
-      <span className={style.select_span}>Filter by:</span>
-      
-      <select className={style.select} name="ordenar por" onChange={(e)=>setOrdPoke(e.target.value)}>
-      <option hidden="hidden">Alphabet</option>
-        <option className={style.options} value="orderDesc">Z-A</option>
-        <option className={style.options} value="orderAsc">A-Z</option>
-      </select>
+          <SelectContainer types={types} stats={stats} setOrdPoke={setOrdPoke} setStatState={setStatState} setTypeState={setTypeState}/>
 
-      <select className={style.select} name="order by type" onChange={(e)=>setTypeState(e.target.value)}>
-      <option hidden="hidden">Types</option>
-        {types?types.map((ty)=><option className={style.options} value={ty}>{ty}</option>):""}
-      </select>
-
-      <select className={style.select} name="orderByStats" onChange={(e)=>setStatState(e.target.value)}>
-      <option hidden="hidden">Stats</option>
-      {stats?stats.map((st)=><option className={style.options} value={st}>{st}</option>):""}
-      </select>
-
-      <select className={style.select} name="orderByOrigin" onChange={(e)=>setOrdPoke(e.target.value)}>
-        <option hidden="hidden">Origin</option>
-        <option className={style.options} value="dbPoke">created by me</option>
-        <option className={style.options} value="apiPoke">clasic</option>
-      </select>
-      <button className={style.filt_button} name="filtCleaning" onClick={()=>{setOrdPoke("");setStatState("");setTypeState("")}}>Clean filters</button>
-      </div>
-
-      <div className={style.prev_next_container}>
-      <button className={style.prev_next_buttons} name="prev" onClick={(e)=>handlePage(e)}> Prev </button>
-      <button className={style.prev_next_buttons} name="next" onClick={(e)=>handlePage(e)}> Next </button>
-      </div>
+          <ArrowContainer page={page} setPage={setPage} />
 
       <div className={style.cards}>
       {
